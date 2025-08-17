@@ -1,0 +1,38 @@
+{
+  "name": "express-rest-api-2025",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Manish Rajput",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "dotenv -- nodemon",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "dotenv-cli": "^10.0.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest": "^29.0.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.3.0",
+    "jest": "^30.0.5",
+    "jiti": "^2.5.1",
+    "nodemon": "^3.1.10",
+    "prettier": "3.6.2",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1"
+  }
+}
