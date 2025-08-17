@@ -1,6 +1,0 @@
-{
-  "extends": "@tsconfig/node22/tsconfig.json", // Use the Node.js 22 configuration as a base
-  "compilerOptions": {
-    "isolatedModules": true // Enable isolated modules for better compatibility with tools like Babel
-  }
-}

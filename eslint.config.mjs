@@ -33,7 +33,7 @@ export default defineConfig([
       quotes: ['error', 'single'], // Enforces single quotes
       'prettier/prettier': [
         'error',
-        { singleQuote: true, jsxSingleQuote: true },
+        { singleQuote: true, jsxSingleQuote: true, endOfLine: 'lf' },
       ], // Ensures Prettier rule is applied
     },
   },

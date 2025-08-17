@@ -1,6 +1,8 @@
+import { createServer } from './server';
 import config from './config';
-import { add } from './utils';
 
-console.log(add(1, 3));
+const server = createServer();
 
-console.log('debug', config.debug);
+server.listen(config.port, () => {
+  console.log('api running on ', config.port);
+});
