@@ -3,6 +3,8 @@
 ### Features
 - Typescript support
 - Error handling
+- Prisma ORM
+- MySQL Database
 
 ### Setup Prisma
 ```bash
@@ -23,4 +25,9 @@ npm run migration:create -- --name create-tasks-and-projects-tables
 ### Apply DB migrations
 ```bash
 npm run migrate
+```
+
+### DB seed
+```bash
+npm run db:seed
 ```
