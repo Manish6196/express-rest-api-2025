@@ -6,5 +6,8 @@
     "forceConsistentCasingInFileNames": true // Ensure file names are case-sensitive
   },
   "include": ["src/**/*"], // Include all TypeScript files in the src directory
-  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist directories
+  "exclude": ["node_modules", "dist"], // Exclude node_modules and dist directories
+  "ts-node": {
+    "files": true // Include all files in ts-node execution
+  }
 }
