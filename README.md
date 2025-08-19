@@ -1,52 +1,26 @@
-# Template for Typescript + Node Projects 2025
+# Example REST API for Typescript + Node Projects 2025
 
-## Steps involved in setup of this project
+### Features
+- Typescript support
+- Error handling
 
-[Setup Source](https://www.youtube.com/watch?v=GTDYsV5pyZU)
-
-1. Initialize project
-
+### Setup Prisma
 ```bash
-npm init
+npm i prisma -D
+npx prisma@latest init --datasource-provider mysql
 ```
 
-2. Setup typescript
-
+### Generate prisma client to latest schema
 ```bash
-npm i typescript ts-node @types/node @tsconfig/node22 -D
+npx prisma generate
 ```
 
-- Write tsconfig.json
-
-3. Setup Jest
-
+### Create DB migrations
 ```bash
-npm i jest ts-jest @types/jest -D
+npm run migration:create -- --name create-tasks-and-projects-tables
 ```
 
-- Write jest.config.js
-
-4. Setup Eslint
-
+### Apply DB migrations
 ```bash
-npm i @eslint/config@latest -D
-```
-
-5. Install Eslint Jest package
-
-```bash
-npm i eslint-plugin-jest -D
-```
-
-6. Setup Prettier with Eslint
-
-```bash
-npm i prettier eslint-plugin-prettier eslint-config-prettier -D
-npm i eslint-config-prettier -D
-```
-
-7. Setup Nodemon & Dotenv
-
-```bash
-npm i nodemon dotenv -D
+npm run migrate
 ```
