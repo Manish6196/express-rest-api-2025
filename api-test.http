@@ -3,15 +3,38 @@ GET http://localhost:3000/health HTTP/1.1
 
 ### Get tasks
 GET http://localhost:3000/v1/tasks HTTP/1.1
+Authorization: Bearer XXXX
 
 ### Get task by ID
 GET http://localhost:3000/v1/tasks/1 HTTP/1.1
+Authorization: Bearer XXXX
 
 ### Get projects
 GET http://localhost:3000/v1/projects HTTP/1.1
+Authorization: Bearer XXXX
 
 ### Get project by ID
 GET http://localhost:3000/v1/projects/1 HTTP/1.1
+Authorization: Bearer XXXX
 
 ### Get project's tasks
 GET http://localhost:3000/v1/projects/1/tasks HTTP/1.1
+Authorization: Bearer XXXX
+
+### Create a new task
+POST http://localhost:3000/v1/tasks HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer XXXX
+
+{
+  "name": "My second task"
+}
+
+### Update a task
+PUT http://localhost:3000/v1/tasks/cmejlpbsa0000uqtcctg03oui HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer XXXX
+
+{
+  "name": "My first task (updated)"
+}
