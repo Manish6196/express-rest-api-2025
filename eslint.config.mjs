@@ -30,6 +30,8 @@ export default defineConfig([
   {
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       quotes: ['error', 'single'], // Enforces single quotes
       'prettier/prettier': [
         'error',

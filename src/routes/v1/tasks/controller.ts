@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
-import EntityNotFoundError from '@/errors/EntityNotFoundError';
-import prisma from '@/prisma-client';
+import { repository } from '@/data/repositories';
 import logger from '@/logger';
 
 export const listTasks = async (req: Request, res: Response) => {
@@ -10,55 +9,25 @@ export const listTasks = async (req: Request, res: Response) => {
       logMetadata: `User ${req.auth?.payload.sub} `,
     })
     .debug('is requesting tasks');
-  const tasks = await prisma.task.findMany({
-    where: {
-      user_id: req.auth?.payload.sub,
-    },
-  });
+  const tasks = await repository.listTasks({}, req.auth?.payload.sub);
   res.status(200).json({ tasks });
 };
 
 export const getTask = async (req: Request, res: Response) => {
-  const task = await prisma.task.findUnique({
-    where: {
-      id: req.params.id,
-      user_id: req.auth?.payload.sub,
-    },
-  });
-  if (!task) {
-    throw new EntityNotFoundError({
-      message: 'Task not found',
-      statusCode: 404,
-      code: 'ERR_NF',
-    });
-  }
+  const task = await repository.getTask(req.params.id, req.auth?.payload.sub);
   res.status(200).json({ task });
 };
 
 export const createTask = async (req: Request, res: Response) => {
-  const task = await prisma.task.create({
-    data: {
-      user_id: req.auth?.payload.sub as string,
-      ...req.body, // Spread other fields if necessary
-    },
-  });
+  const task = await repository.createTask(req.body, req.auth?.payload.sub);
   res.status(201).json({ task });
 };
 
 export const updateTask = async (req: Request, res: Response) => {
-  const task = await prisma.task.update({
-    where: {
-      id: req.params.id,
-      user_id: req.auth?.payload.sub,
-    },
-    data: req.body, // Update with the provided data
-  });
-  if (!task) {
-    throw new EntityNotFoundError({
-      message: 'Task not found',
-      statusCode: 404,
-      code: 'ERR_NF',
-    });
-  }
+  const task = await repository.updateTask(
+    req.params.id,
+    req.body,
+    req.auth?.payload.sub,
+  );
   res.status(200).json({ task });
 };
