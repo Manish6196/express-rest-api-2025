@@ -65,6 +65,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "_moduleAliases": {
-    "@": "./dist"
+    "@": "./dist",
+    "@root": "./"
   }
 }
