@@ -1,13 +1,17 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json", // Use the Node.js 22 configuration as a base
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist", // Output directory for compiled files
-    "rootDir": "./src", // Root directory of the source files
-    "forceConsistentCasingInFileNames": true // Ensure file names are case-sensitive
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src/**/*"], // Include all TypeScript files in the src directory
-  "exclude": ["node_modules", "dist"], // Exclude node_modules and dist directories
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
-    "files": true // Include all files in ts-node execution
+    "files": true
   }
 }

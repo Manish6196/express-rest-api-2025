@@ -1,6 +1,7 @@
 node_modules/
 logs/
 dist/
+prisma-client/
 .env
 
 /src/generated/prisma

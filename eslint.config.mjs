@@ -7,7 +7,7 @@ import EslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default defineConfig([
   {
-    ignores: ['dist/'],
+    ignores: ['dist/', 'prisma/', 'node_modules/'],
   },
   {
     files: ['src/**/*.{js,ts,jsx,tsx}', 'tests/**/*.{js,ts,jsx,tsx}'],

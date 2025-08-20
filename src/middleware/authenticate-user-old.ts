@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import config from '../config';
-import AuthenticationError from '../errors/AuthenticationError';
+import config from '@/config';
+import AuthenticationError from '@/errors/AuthenticationError';
 
 const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
@@ -18,7 +18,7 @@ const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const decoded = jwt.verify(token, config.appSecret);
-    req.auth = { payload: decoded as JwtPayload, token };
+    // req.auth = { payload: decoded as JwtPayload, token };
     next();
   } catch (error) {
     throw new AuthenticationError({
